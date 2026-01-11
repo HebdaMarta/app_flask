@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add movie</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header>
+    <h1>My favorite movies to watch</h1>
+</header>
+
+<main class="container">
+    <div class="row">
+        <div class="column column-60">
+            <a href="{{ url_for('home') }}">
+                <i class="fa-solid fa-arrow-left"></i> Back to list of movies
+            </a>
+            <h3><i class="fa-solid fa-file-circle-plus"></i> Add movie</h3>
+
+            <form method="POST">
+                <label>Title</label>
+                <input type="text" name="title">
+
+                <label>Year</label>
+                <input type="text" name="year">
+
+                <label>Actors</label>
+                <input type="text" name="actors">
+
+                <button type="submit">
+                    <i class="fa-solid fa-plus"></i> ADD
+                </button>
+            </form>
+        </div>
+
+        <div class="column column-40"></div>
+
+    </div>
+</main>
+
+<footer>
+    © My Movie Database. All rights reserved.
+</footer>
+
+</body>
+</html>

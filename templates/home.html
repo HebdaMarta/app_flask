@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Movie Database</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <h1>My favorite movies to watch</h1>
+</header>
+
+<main class="container">
+    <div class="row">
+        <div class="column column-60">
+            <h3><i class="fa-solid fa-list"></i> Titles</h3>
+
+            <a href="{{ url_for('add_movie') }}">
+                <i class="fa-solid fa-file-circle-plus"></i> Add new movie
+            </a>
+
+            <form method="POST">
+                <ul>
+                    {% for movie in movies %}
+                    <li>
+                        <input type="checkbox" name="movieToRemove" value="{{ movie['id'] }}">
+                        {{ movie['title'] }}, {{ movie['year'] }}, {{ movie['actors'] }}
+                    </li>
+                    {% endfor %}
+                </ul>
+
+                <button class="button button-outline" type="submit">
+                    <i class="fa-solid fa-trash"></i> DELETE SELECTED
+                </button>
+            </form>
+        </div>
+        <div class="column column-40">
+        </div>
+
+    </div>
+</main>
+
+<footer>
+    © My Movie Database. All rights reserved.
+</footer>
+
+</body>
+</html>
